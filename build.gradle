@@ -1,0 +1,43 @@
+
+
+plugins {
+    id 'org.springframework.boot' version '1.5.7.RELEASE'
+}
+apply plugin: 'war'
+apply plugin: 'java'
+
+apply plugin: 'eclipse-wtp'
+apply plugin: 'idea'
+
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+jar {
+    baseName = 'hello'
+    version = '1.0'
+}
+
+war {
+    baseName = 'webeng'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'javax.servlet:jstl'
+
+    compile 'org.webjars:bootstrap:3.3.5'
+    compile 'org.webjars:jquery:2.1.4'
+
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
